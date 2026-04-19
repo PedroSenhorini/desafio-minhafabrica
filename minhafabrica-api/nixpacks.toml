@@ -1,0 +1,5 @@
+[phases.build]
+cmds = ["npm install", "npx tsc --skipLibCheck --noEmitOnError false"]
+
+[start]
+cmd = "node dist/server.js"
