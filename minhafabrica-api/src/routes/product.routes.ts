@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { getProducts, getProductById, createProduct, updateProduct, deleteProduct } from '../controllers/product.controller';
+import { authenticate, isAdmin } from '../middlewares/auth';
+const router = Router();
+router.get('/', authenticate, getProducts);
+router.get('/:id', authenticate, getProductById);
+router.post('/', authenticate, isAdmin, createProduct);
+router.put('/:id', authenticate, isAdmin, updateProduct);
+router.delete('/:id', authenticate, isAdmin, deleteProduct);
+export default router;
